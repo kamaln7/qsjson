@@ -30,6 +30,7 @@ func marshalQueryString(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	flag.Parse()
 	http.HandleFunc("/", marshalQueryString)
 	log.Printf("listening on %s\n", *listenAddress)
 	err := http.ListenAndServe(*listenAddress, nil)
